@@ -1,37 +1,20 @@
-import React, {useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 const FetchPictures = (props) => {
-  const [pic, setPics] = useState();
+  // const [pic, setPics] = useState([]);
+  const getApiData = () => {
+    fetch(`https://picsum.photos/v2/list?page=${props.pageNumber}`)
+      .then((response) => response.json())
+      .then((data) => props.onFetchPictures(data));
+  };
 
   useEffect(() => {
-    fetch("https://picsum.photos/id/237/200/300")
-     .then((response) => setPics(response));
-   }, []);
+    getApiData();
+  }, []);
+  // console.log(props.pageNumber);
+  // console.log(pic[0]);
 
-  console.log(pic)
-
-  // const getApiData = async () => {
-  //   const response = await fetch(
-  //     "https://picsum.photos/v2/list/"
-  //   ).then((response) => response.json());
-  //   // update the state
-  //   setPics(response);
-  // };
-
-  // useEffect(() => {
-  //   getApiData();
-  // }, []);
-
-  // const fetchData = () => {
-  //   fetch("https://picsum.photos/v2/list")
-  //     .then((response) => response.json())
-  //     .then((data) => setPics(data));
-  // };
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-  props.onFetchPictures(pic);
+  // props.onFetchPictures(pic);
 };
 
 export default FetchPictures;
