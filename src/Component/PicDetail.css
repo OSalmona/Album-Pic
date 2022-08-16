@@ -1,0 +1,29 @@
+.layout-header{
+    background-color: #001529;
+    width: auto;
+    height: 50px;
+    margin-bottom: .5rem;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+  }
+
+  .link{
+    color: aliceblue;
+    margin-left: 100px;
+    margin-top: 10px;
+text-decoration: none;  }
+
+/* .block_container {
+  display: flex;
+  justify-content: center;
+} */
+
+.block_container{
+  text-align:center;
+}
+
+.bloc1, .bloc2
+{
+    display:inline;
+}

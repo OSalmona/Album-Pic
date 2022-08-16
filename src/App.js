@@ -1,30 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-import Frame from './Component/Frame';
+import React, { useState } from "react";
 
-const App =()=> {
+import Frame from "./Component/Frame";
+import './Component/Frame.css';
+const App = () => {
+  const [page, setPage] = useState(1);
+
+  const addNewPackage = e => {
+    e.preventDefault();
+    let p = parseInt(page ,10) + 1 ;
+    setPage(p);
+  };
+
   return (
-    <Frame/>
+    <div>
+      <Frame pageNumer={page} />
+      <div className="center">
+      <button className="button" type="button" onClick={addNewPackage}>
+        Show More
+      </button>
+      </div>
+    </div>
   );
-}
+};
 
 export default App;
-
-
-
-// <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
